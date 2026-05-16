@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoundFit Pro — Oferta Relâmpago</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:           #0D0F14;
+    --surface:      #1A1E28;
+    --border:       #2A2F3E;
+    --border2:      #343B52;
+    --ink:          #F0F2F7;
+    --ink-mid:      #8B92A8;
+    --ink-light:    #555D72;
+    --accent:       #4ADE80;
+    --accent-dim:   rgba(74,222,128,0.10);
+    --red:          #EF4444;
+    --red-dim:      rgba(239,68,68,0.12);
+    --red-border:   rgba(239,68,68,0.30);
+    --amber:        #F59E0B;
+    --amber-dim:    rgba(245,158,11,0.12);
+    --amber-border: rgba(245,158,11,0.30);
+    --blue:         #60A5FA;
+    --radius:       18px;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* URGENCY BANNER */
+  .urgency-banner {
+    background: var(--red);
+    color: #fff;
+    text-align: center;
+    padding: 11px 20px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    letter-spacing: 0.02em;
+  }
+
+  .pulse-dot {
+    width: 8px; height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    animation: pdot 1.3s ease-in-out infinite;
+    flex-shrink: 0;
+  }
+
+  @keyframes pdot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.35; transform: scale(0.65); }
+  }
+
+  /* NAV */
+  nav {
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(13,15,20,0.88);
+    backdrop-filter: blur(14px);
+    z-index: 100;
+  }
+  .nav-logo { font-family: 'Outfit', sans-serif; font-size: 22px; font-weight: 700; }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 32px; font-size: 14px; color: var(--ink-mid); }
+
+  /* COUNTDOWN STRIP */
+  .countdown-wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 20px 48px 0;
+  }
+
+  .countdown-card {
+    background: var(--red-dim);
+    border: 1.5px solid var(--red-border);
+    border-radius: var(--radius);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .cd-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--red);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .cd-digits { display: flex; align-items: center; gap: 6px; }
+
+  .cd-unit { display: flex; flex-direction: column; align-items: center; gap: 3px; }
+
+  .cd-box {
+    background: var(--red);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 10px;
+    min-width: 52px;
+    text-align: center;
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .cd-unit-label {
+    font-size: 10px;
+    color: var(--red);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .cd-sep { font-size: 22px; font-weight: 700; color: var(--red); padding-bottom: 14px; }
+
+  .viewers-chip {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    font-size: 13px;
+    color: var(--blue);
+    font-weight: 500;
+    background: rgba(96,165,250,0.10);
+    border: 1px solid rgba(96,165,250,0.25);
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  .viewers-dot {
+    width: 7px; height: 7px;
+    background: var(--blue);
+    border-radius: 50%;
+    animation: pdot 1.6s ease-in-out infinite;
+  }
+
+  /* HERO */
+  .hero {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 36px 48px 48px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 68px;
+    align-items: start;
+  }
+
+  .hero-left { display: flex; flex-direction: column; gap: 14px; }
+
+  .hero-visual {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #080A10;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1.5px solid var(--red-border);
+    box-shadow: 0 0 40px rgba(239,68,68,0.08);
+  }
+
+  .hero-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 65% 30%, rgba(239,68,68,0.07) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .sold-badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: var(--red);
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 12px;
+    border-radius: 20px;
+    letter-spacing: 0.04em;
+    z-index: 2;
+  }
+
+  .product-img {
+    width: 92%;
+    height: 92%;
+    object-fit: contain;
+    animation: float 5s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50%       { transform: translateY(-14px) rotate(1deg); }
+  }
+
+  /* STOCK */
+  .stock-block {
+    background: var(--amber-dim);
+    border: 1px solid var(--amber-border);
+    border-radius: 14px;
+    padding: 14px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .stock-top {
+    font-family: 'Outfit', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--amber);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .stock-bar-outer {
+    background: rgba(245,158,11,0.15);
+    border-radius: 4px;
+    height: 6px;
+    overflow: hidden;
+  }
+
+  .stock-bar-inner {
+    height: 100%;
+    width: 15%;
+    background: var(--amber);
+    border-radius: 4px;
+    animation: shrink 40s linear forwards;
+  }
+
+  @keyframes shrink { from { width: 15%; } to { width: 8%; } }
+
+  .stock-bottom {
+    font-size: 12px;
+    color: var(--ink-mid);
+  }
+
+  /* CONTENT */
+  .category-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--red-dim);
+    border: 1px solid var(--red-border);
+    color: var(--red);
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 18px;
+  }
+
+  h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.07;
+    letter-spacing: -1.2px;
+    margin-bottom: 14px;
+    color: var(--ink);
+  }
+
+  h1 em { font-style: normal; color: var(--accent); }
+
+  /* SOCIAL PROOF */
+  .social-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+  }
+
+  .stars { color: var(--amber); font-size: 14px; letter-spacing: 1px; }
+  .review-count { font-size: 13px; color: var(--ink-mid); }
+  .recent-chip {
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    background: rgba(74,222,128,0.10);
+    border: 1px solid rgba(74,222,128,0.22);
+    color: var(--accent);
+    padding: 3px 10px;
+    border-radius: 20px;
+  }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    margin-bottom: 24px;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+    color: var(--ink-mid);
+    padding: 12px 16px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .feature-icon {
+    width: 34px; height: 34px;
+    background: var(--accent-dim);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  /* PRICE */
+  .price-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 14px;
+    margin-bottom: 6px;
+  }
+
+  .price-main {
+    font-family: 'Outfit', sans-serif;
+    font-size: 58px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+
+  .price-old-wrap { display: flex; flex-direction: column; gap: 4px; padding-bottom: 6px; }
+  .price-old { font-size: 18px; color: var(--ink-light); text-decoration: line-through; }
+  .price-badge {
+    background: rgba(74,222,128,0.15);
+    border: 1px solid rgba(74,222,128,0.3);
+    color: var(--accent);
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 6px;
+    align-self: flex-start;
+  }
+
+  .price-sub { font-size: 13px; color: var(--ink-light); margin-bottom: 22px; }
+
+  /* CTA */
+  .cta-btn {
+    display: block;
+    width: 100%;
+    background: var(--red);
+    color: #fff;
+    border: none;
+    border-radius: var(--radius);
+    padding: 19px 32px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: 0.01em;
+    animation: ctashine 2.8s ease-in-out infinite;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+
+  @keyframes ctashine {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(239,68,68,0.3); }
+    50% { box-shadow: 0 0 0 10px rgba(239,68,68,0); }
+  }
+
+  .cta-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+  .cta-warning {
+    text-align: center;
+    font-size: 12px;
+    color: var(--red);
+    font-weight: 500;
+    margin-top: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+  }
+
+  /* ACTIVITY FEED */
+  .activity-section {
+    max-width: 1120px;
+    margin: 0 auto 40px;
+    padding: 0 48px;
+  }
+
+  .section-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 12px;
+  }
+
+  .activity-feed { display: flex; flex-direction: column; gap: 8px; }
+
+  .activity-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    color: var(--ink-mid);
+    animation: fadein 0.5s ease both;
+  }
+
+  .activity-item:nth-child(1) { animation-delay: 0.1s; }
+  .activity-item:nth-child(2) { animation-delay: 0.3s; }
+  .activity-item:nth-child(3) { animation-delay: 0.5s; }
+
+  @keyframes fadein { from { opacity:0; transform: translateX(-8px); } to { opacity:1; transform: translateX(0); } }
+
+  .act-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
+
+  /* INFO */
+  .info-strip {
+    max-width: 1120px;
+    margin: 0 auto 48px;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+  }
+
+  .info-card .ic-icon { font-size: 26px; margin-bottom: 10px; }
+  .info-card .ic-title { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .info-card .ic-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.5; }
+
+  /* SPECS */
+  .specs-section {
+    max-width: 1120px;
+    margin: 0 auto 72px;
+    padding: 0 48px;
+  }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .spec-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .spec-label { font-size: 11px; color: var(--ink-light); text-transform: uppercase; letter-spacing: 0.06em; }
+  .spec-value { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 600; color: var(--ink); }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-light);
+  }
+
+  @media (max-width: 720px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .countdown-wrap { padding: 16px 20px 0; }
+    .hero { grid-template-columns: 1fr; gap: 32px; padding: 28px 20px 40px; }
+    h1 { font-size: 34px; }
+    .info-strip, .activity-section, .specs-section { padding: 0 20px; }
+    .specs-grid { grid-template-columns: repeat(2, 1fr); }
+    .cd-box { font-size: 20px; min-width: 42px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="urgency-banner">
+  <span class="pulse-dot"></span>
+  🔥 OFERTA RELÂMPAGO — Apenas hoje! Estoque quase esgotado.
+  <span class="pulse-dot"></span>
+</div>
+
+<nav>
+  <div class="nav-logo">Sound<span>Fit</span></div>
+  <div class="nav-links">
+    <span>Início</span><span>Produtos</span><span>Sobre</span>
+  </div>
+</nav>
+
+<div class="countdown-wrap">
+  <div class="countdown-card">
+    <div class="cd-label">⏱ Esta oferta encerra em:</div>
+    <div class="cd-digits">
+      <div class="cd-unit">
+        <div class="cd-box" id="hours">00</div>
+        <div class="cd-unit-label">horas</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit">
+        <div class="cd-box" id="minutes">47</div>
+        <div class="cd-unit-label">min</div>
+      </div>
+      <div class="cd-sep">:</div>
+      <div class="cd-unit">
+        <div class="cd-box" id="seconds">23</div>
+        <div class="cd-unit-label">seg</div>
+      </div>
+    </div>
+    <div class="viewers-chip">
+      <span class="viewers-dot"></span>
+      <span id="viewers">1.247</span> pessoas vendo agora
+    </div>
+  </div>
+</div>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-visual">
+      <div class="sold-badge">🔥 MAIS VENDIDO</div>
+      <img src="headphone.jpg" alt="SoundFit Pro" class="product-img">
+    </div>
+    <div class="stock-block">
+      <div class="stock-top">⚡ Restam apenas <strong>5 unidades</strong> no estoque!</div>
+      <div class="stock-bar-outer"><div class="stock-bar-inner"></div></div>
+      <div class="stock-bottom">82 pessoas já garantiram o seu hoje</div>
+    </div>
+  </div>
+
+  <div class="hero-content">
+    <span class="category-tag">🔥 Oferta Relâmpago</span>
+
+    <h1>SoundFit Pro<br><em>encaixa perfeito,</em><br>soa melhor.</h1>
+
+    <div class="social-row">
+      <span class="stars">★★★★★</span>
+      <span class="review-count">4,9 · 1.203 avaliações</span>
+      <span class="recent-chip">✓ 82 compras hoje</span>
+    </div>
+
+    <p class="subtitle">Desenvolvido para jovens em movimento. Estuda, malha ou curte a rua com qualidade de som e conforto que duram o dia todo.</p>
+
+    <div class="features">
+      <div class="feature-item"><div class="feature-icon">📚</div><span>Ideal para estudar — isolamento passivo de ruído</span></div>
+      <div class="feature-item"><div class="feature-icon">🏃</div><span>Encaixe anatômico — não cai durante o treino</span></div>
+      <div class="feature-item"><div class="feature-icon">🔗</div><span>Bluetooth 5.3 — conexão estável até 15 metros</span></div>
+      <div class="feature-item"><div class="feature-icon">🔋</div><span>Bateria de 8 horas de uso contínuo</span></div>
+    </div>
+
+    <div class="price-row">
+      <div class="price-main">R$ 20</div>
+      <div class="price-old-wrap">
+        <div class="price-old">R$ 59,90</div>
+        <div class="price-badge">−67% OFF</div>
+      </div>
+    </div>
+    <p class="price-sub">Frete grátis · Chega em 5–7 dias úteis</p>
+
+    <a href="#" class="cta-btn" id="cta-link">🛒 Garantir minha unidade agora</a>
+    <p class="cta-warning">⚠️ Restam 5 unidades — oferta encerra quando o estoque acabar</p>
+  </div>
+</section>
+
+<div class="activity-section">
+  <div class="section-label">Atividade recente</div>
+  <div class="activity-feed">
+    <div class="activity-item"><div class="act-dot"></div>Carlos de São Paulo comprou há 3 minutos</div>
+    <div class="activity-item"><div class="act-dot"></div>Juliana de Recife comprou há 7 minutos</div>
+    <div class="activity-item"><div class="act-dot"></div>Pedro de Belo Horizonte comprou há 12 minutos</div>
+  </div>
+</div>
+
+<div class="info-strip">
+  <div class="info-card"><div class="ic-icon">🚚</div><div class="ic-title">Frete grátis</div><div class="ic-desc">Para todo o Brasil, sem valor mínimo de compra.</div></div>
+  <div class="info-card"><div class="ic-icon">🔒</div><div class="ic-title">Compra segura</div><div class="ic-desc">Seus dados protegidos com criptografia SSL.</div></div>
+  <div class="info-card"><div class="ic-icon">↩️</div><div class="ic-title">Troca fácil</div><div class="ic-desc">7 dias para troca ou devolução sem burocracia.</div></div>
+</div>
+
+<div class="specs-section">
+  <div class="section-label">Especificações técnicas</div>
+  <div class="specs-grid">
+    <div class="spec-item"><div class="spec-label">Conectividade</div><div class="spec-value">Bluetooth 5.3</div></div>
+    <div class="spec-item"><div class="spec-label">Bateria</div><div class="spec-value">8 horas</div></div>
+    <div class="spec-item"><div class="spec-label">Alcance</div><div class="spec-value">até 15m</div></div>
+    <div class="spec-item"><div class="spec-label">Tipo</div><div class="spec-value">In-ear anatômico</div></div>
+    <div class="spec-item"><div class="spec-label">Resistência</div><div class="spec-value">IPX4</div></div>
+    <div class="spec-item"><div class="spec-label">Compatibilidade</div><div class="spec-value">Android e iOS</div></div>
+  </div>
+</div>
+
+<footer>© 2025 SoundFit — Todos os direitos reservados · Esta é uma página criada para fins de pesquisa acadêmica</footer>
+
+<script>
+  // ─── CONFIGURAÇÃO — substitua os dois valores abaixo ───────────────────
+  const FORMS_URL = "https://docs.google.com/forms/d/e/SEU_FORM_ID/viewform";
+  const ENTRY_UID = "entry.XXXXXXXXXX"; // ID do campo UID no seu Google Forms
+  // ────────────────────────────────────────────────────────────────────────
+
+  // Lê o uid da URL (ex: ?uid=F01). Se não vier, marca como SEM_ID
+  const uid = new URLSearchParams(window.location.search).get('uid') || 'SEM_ID';
+
+  // Monta o link do Forms com o uid pré-preenchido e aponta o botão para ele
+  const formsLink = `${FORMS_URL}?usp=pp_url&${ENTRY_UID}=${encodeURIComponent(uid)}`;
+  document.getElementById('cta-link').href = formsLink;
+
+  console.log('Participante identificado:', uid);
+  // Contador real — inicia em 47:23
+  let total = 47 * 60 + 23;
+  function tick() {
+    const h = Math.floor(total / 3600);
+    const m = Math.floor((total % 3600) / 60);
+    const s = total % 60;
+    document.getElementById('hours').textContent   = String(h).padStart(2,'0');
+    document.getElementById('minutes').textContent = String(m).padStart(2,'0');
+    document.getElementById('seconds').textContent = String(s).padStart(2,'0');
+    if (total > 0) total--;
+  }
+  setInterval(tick, 1000);
+  tick();
+
+  // Viewers flutuando de forma realista
+  let v = 1247;
+  setInterval(() => {
+    v = Math.max(1180, v + (Math.floor(Math.random() * 9) - 4));
+    document.getElementById('viewers').textContent = v.toLocaleString('pt-BR');
+  }, 3800);
+</script>
+
+</body>
+</html>
