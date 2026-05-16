@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SoundFit Pro — Fone Bluetooth</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:          #0D0F14;
+    --bg2:         #13161D;
+    --surface:     #1A1E28;
+    --surface2:    #222736;
+    --border:      #2A2F3E;
+    --border2:     #343B52;
+    --ink:         #F0F2F7;
+    --ink-mid:     #8B92A8;
+    --ink-light:   #555D72;
+    --accent:      #4ADE80;
+    --accent-dim:  rgba(74,222,128,0.10);
+    --radius:      18px;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  nav {
+    padding: 20px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(13,15,20,0.88);
+    backdrop-filter: blur(14px);
+    z-index: 100;
+  }
+  .nav-logo {
+    font-family: 'Outfit', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 32px; font-size: 14px; color: var(--ink-mid); }
+
+  .hero {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 72px 48px 56px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 72px;
+    align-items: center;
+  }
+
+  .hero-visual {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    background: #080A10;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border);
+  }
+
+  .hero-visual::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 65% 30%, rgba(74,222,128,0.07) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .product-img {
+    width: 92%;
+    height: 92%;
+    object-fit: contain;
+    animation: float 5s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0) rotate(-1deg); }
+    50%       { transform: translateY(-14px) rotate(1deg); }
+  }
+
+  .category-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent-dim);
+    border: 1px solid rgba(74,222,128,0.22);
+    color: var(--accent);
+    font-family: 'Outfit', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 20px;
+    margin-bottom: 22px;
+  }
+
+  h1 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 50px;
+    font-weight: 700;
+    line-height: 1.07;
+    letter-spacing: -1.2px;
+    margin-bottom: 18px;
+    color: var(--ink);
+  }
+
+  h1 em { font-style: normal; color: var(--accent); }
+
+  .subtitle {
+    font-size: 15px;
+    color: var(--ink-mid);
+    line-height: 1.75;
+    margin-bottom: 36px;
+  }
+
+  .features {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 40px;
+  }
+
+  .feature-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 14px;
+    color: var(--ink-mid);
+    padding: 13px 16px;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+  }
+
+  .feature-icon {
+    width: 34px;
+    height: 34px;
+    background: var(--accent-dim);
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+
+  .price-block {
+    display: flex;
+    align-items: flex-end;
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+
+  .price-main {
+    font-family: 'Outfit', sans-serif;
+    font-size: 58px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1;
+    letter-spacing: -1.5px;
+  }
+
+  .price-detail {
+    font-size: 13px;
+    color: var(--ink-light);
+    line-height: 1.7;
+    padding-bottom: 6px;
+  }
+
+  .cta-btn {
+    display: block;
+    width: 100%;
+    background: var(--accent);
+    color: #0A0C10;
+    border: none;
+    border-radius: var(--radius);
+    padding: 18px 32px;
+    font-family: 'Outfit', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.15s;
+  }
+
+  .cta-btn:hover { opacity: 0.88; transform: translateY(-2px); }
+
+  .cta-sub {
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-top: 10px;
+  }
+
+  .info-strip {
+    max-width: 1120px;
+    margin: 0 auto 56px;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+
+  .info-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+  }
+
+  .info-card .ic-icon { font-size: 26px; margin-bottom: 10px; }
+  .info-card .ic-title { font-family: 'Outfit', sans-serif; font-size: 14px; font-weight: 600; margin-bottom: 4px; }
+  .info-card .ic-desc { font-size: 13px; color: var(--ink-mid); line-height: 1.5; }
+
+  .specs-section {
+    max-width: 1120px;
+    margin: 0 auto 72px;
+    padding: 0 48px;
+  }
+
+  .section-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 16px;
+  }
+
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+  .spec-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .spec-label { font-size: 11px; color: var(--ink-light); text-transform: uppercase; letter-spacing: 0.06em; }
+  .spec-value { font-family: 'Outfit', sans-serif; font-size: 15px; font-weight: 600; color: var(--ink); }
+
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 24px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: var(--ink-light);
+  }
+
+  @media (max-width: 720px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; gap: 36px; padding: 36px 20px; }
+    h1 { font-size: 34px; }
+    .info-strip { grid-template-columns: 1fr; padding: 0 20px; }
+    .specs-section { padding: 0 20px; }
+    .specs-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Sound<span>Fit</span></div>
+  <div class="nav-links">
+    <span>Início</span><span>Produtos</span><span>Sobre</span>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-visual">
+    <img src="headphone.jpg" alt="SoundFit Pro" class="product-img">
+  </div>
+
+  <div class="hero-content">
+    <span class="category-tag">🎧 Fone Bluetooth</span>
+    <h1>SoundFit Pro<br><em>encaixa perfeito,</em><br>soa melhor.</h1>
+    <p class="subtitle">Desenvolvido para jovens em movimento. Estuda, malha ou curte a rua com qualidade de som e conforto que duram o dia todo.</p>
+
+    <div class="features">
+      <div class="feature-item"><div class="feature-icon">📚</div><span>Ideal para estudar — isolamento passivo de ruído</span></div>
+      <div class="feature-item"><div class="feature-icon">🏃</div><span>Encaixe anatômico — não cai durante o treino</span></div>
+      <div class="feature-item"><div class="feature-icon">🔗</div><span>Bluetooth 5.3 — conexão estável até 15 metros</span></div>
+      <div class="feature-item"><div class="feature-icon">🔋</div><span>Bateria de 8 horas de uso contínuo</span></div>
+    </div>
+
+    <div class="price-block">
+      <div class="price-main">R$ 20</div>
+      <div class="price-detail">Frete grátis<br>Entrega em 5–7 dias úteis</div>
+    </div>
+
+    <a href="#" class="cta-btn" id="cta-link">Comprar agora</a>
+    <p class="cta-sub">Pagamento seguro · Satisfação garantida</p>
+  </div>
+</section>
+
+<div class="info-strip">
+  <div class="info-card"><div class="ic-icon">🚚</div><div class="ic-title">Frete grátis</div><div class="ic-desc">Para todo o Brasil, sem valor mínimo de compra.</div></div>
+  <div class="info-card"><div class="ic-icon">🔒</div><div class="ic-title">Compra segura</div><div class="ic-desc">Seus dados protegidos com criptografia SSL.</div></div>
+  <div class="info-card"><div class="ic-icon">↩️</div><div class="ic-title">Troca fácil</div><div class="ic-desc">7 dias para troca ou devolução sem burocracia.</div></div>
+</div>
+
+<div class="specs-section">
+  <div class="section-label">Especificações técnicas</div>
+  <div class="specs-grid">
+    <div class="spec-item"><div class="spec-label">Conectividade</div><div class="spec-value">Bluetooth 5.3</div></div>
+    <div class="spec-item"><div class="spec-label">Bateria</div><div class="spec-value">8 horas</div></div>
+    <div class="spec-item"><div class="spec-label">Alcance</div><div class="spec-value">até 15m</div></div>
+    <div class="spec-item"><div class="spec-label">Tipo</div><div class="spec-value">In-ear anatômico</div></div>
+    <div class="spec-item"><div class="spec-label">Resistência</div><div class="spec-value">IPX4</div></div>
+    <div class="spec-item"><div class="spec-label">Compatibilidade</div><div class="spec-value">Android e iOS</div></div>
+  </div>
+</div>
+
+<footer>© 2025 SoundFit — Todos os direitos reservados · Esta é uma página criada para fins de pesquisa acadêmica</footer>
+
+
+<script>
+  // ─── CONFIGURAÇÃO — substitua os dois valores abaixo ───────────────────
+  const FORMS_URL = "https://docs.google.com/forms/d/e/SEU_FORM_ID/viewform";
+  const ENTRY_UID = "entry.XXXXXXXXXX"; // ID do campo UID no seu Google Forms
+  // ────────────────────────────────────────────────────────────────────────
+
+  // Lê o uid da URL (ex: ?uid=C01). Se não vier, marca como SEM_ID
+  const uid = new URLSearchParams(window.location.search).get('uid') || 'SEM_ID';
+
+  // Monta o link do Forms com o uid pré-preenchido e aponta o botão para ele
+  const formsLink = `${FORMS_URL}?usp=pp_url&${ENTRY_UID}=${encodeURIComponent(uid)}`;
+  document.getElementById('cta-link').href = formsLink;
+
+  // Opcional: exibe o uid discretamente no console para debug
+  console.log('Participante identificado:', uid);
+</script>
+</body>
+</html>
